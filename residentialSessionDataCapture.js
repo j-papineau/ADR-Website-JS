@@ -51,7 +51,7 @@ document.getElementById("servingText").innerHTML = "Serving " + locationShort + 
 //other declarations and changes take place on element level
 
 
-//session data stuff
+//store session data 
 
 sessionStorage.setItem("phoneNumber", phoneNumberValue);
 sessionStorage.setItem("locationFull", locationFull);
