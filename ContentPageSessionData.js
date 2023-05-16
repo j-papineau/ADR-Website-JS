@@ -29,6 +29,7 @@ if(hasData){
 	for(let i = 0; i < phoneButtons.length; i++){
 
 		phoneButtons[i].href = "tel:" + phoneNumberLink
+        //changes to tel link
 
 	}
 	
