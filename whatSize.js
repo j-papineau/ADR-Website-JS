@@ -1,3 +1,11 @@
+/*
+
+v1.1 confirmed works for PHP pulls, need to handle other test cases
+
+
+*/
+
+
 //get session data 
 
 hasData = sessionStorage.getItem("hasData");
@@ -13,45 +21,64 @@ check = document.getElementById("values")
 
 if(typeof(check) != 'undefined' && check != null){
 
-testArea = document.getElementById("testArea")
-
-block = document.getElementById("values").textContent
-
-
-values = block.split("+");
+	testArea = document.getElementById("testArea")
+	block = document.getElementById("values").textContent
+	values = block.split("+");
 
 
-slug = values[1];
-phoneNumberValue = values[0];
-locationFull = values[2];
-locationShort = values[3];
+	slug = values[1];
+	phoneNumberValue = values[0];
+	locationFull = values[2];
+	locationShort = values[3];
 	
+	phoneNumberLink = "tel:" + phoneNumberValue
 	
-phoneClass = document.getElementsByClassName("phoneClass")
-
-	for(let i = 0; i < phoneClass.length; i++){
-
-		phoneClass[i].innerHTML = "<strong>" + phoneNumberValue + "</strong>"
-
-	}
-
-
-
-testArea.innerHTML = slug
-
-
-
+	constructionURL = "https://affordabledumpsterrental.com/resources/" + slug + "/construction-dumpsters";
+	residentialURL  = "https://affordabledumpsterrental.com/resources/" + slug + "/residential-dumpsters";
+	
+	//test div stuff
+testArea.innerHTML = constructionURL
 
 }
+
 else if(hasData){
+	
+	//session data case
 	
 	phoneNumberValue = sessionPhone;
 	phoneNumberLink = phoneNumberValue;
 	locationFull = sessionLocationFull;
 	locationShort = sessionLocationShort;
 	
+	constructionURL = sessionStorage.getItem("constructionURL");
+	residentialURL = sessionStorage.getItem("residentialURL");
+	
 	
 	telLink = "tel:" + phoneNumberValue;
+	
+}
+
+else{
+	
+	//default case
+
+	phoneNumberValue = '444-444-3444' //(xxx)-xxx-xxxx
+	phoneNumberLink = phoneNumberValue //xxx-xxx-xxxx
+	locationFull = 'Little Rock, AR' 
+	locationShort = 'Little Rock' 
+
+	constructionURL = "https://affordabledumpsterrental.com"
+	residentialURL = "https://affordabledumpsterrental.com"
+	//Do not edit below
+
+	telLink = "tel:" + phoneNumberValue;
+	
+}
+
+testArea.innerHTML = constructionURL
+
+
+//set all based on vars
 
 	phoneClass = document.getElementsByClassName("phoneClass")
 
@@ -76,55 +103,17 @@ else if(hasData){
 	for(i = 0; i < constructionButtons.length; i++){
 		
 		
-		constructionButtons[i].href = sessionStorage.getItem("constructionURL");
+		constructionButtons[i].href = constructionURL
 		
 	}
-	
-	
 	
 	
 	homeownerButtons = document.getElementsByClassName("homeownerButton")
 	
 	for(i = 0; i < homeownerButtons.length; i++){
 		
-		homeownerButtons[i].href = sessionStorage.getItem("residentialURL");
-		
-	}
-	
-	
-}
-else{
-
-	phoneNumberValue = '444-444-3444' //(xxx)-xxx-xxxx
-	phoneNumberLink = phoneNumberValue //xxx-xxx-xxxx
-	locationFull = 'Little Rock, AR' 
-	locationShort = 'Little Rock' 
-
-
-	//Do not edit below
-
-	telLink = "tel:" + phoneNumberValue;
-
-	phoneClass = document.getElementsByClassName("phoneClass")
-
-	for(let i = 0; i < phoneClass.length; i++){
-
-		phoneClass[i].innerHTML = "<strong>" + phoneNumberValue + "</strong>"
+		homeownerButtons[i].href = residentialURL
 
 	}
-
-
-
-	phoneButtons = document.getElementsByClassName("phoneButton")
-
-	for(let i = 0; i < phoneButtons.length; i++){
-
-		phoneButtons[i].href = "tel:" + phoneNumberLink
-
-	}
-
-	
-}
-
 
 //other declarations and changes take place on element level
