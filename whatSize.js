@@ -1,11 +1,3 @@
-/*
-
-v1.1 confirmed works for PHP pulls, need to handle other test cases
-
-
-*/
-
-
 //get session data 
 
 hasData = sessionStorage.getItem("hasData");
@@ -16,12 +8,12 @@ sessionOriginURL = sessionStorage.getItem("originURL");
 
 //create check var for hidden div
 check = document.getElementById("values")
+check.style.display = "none";
 
 //first case is if the check div exists, meaning the url has a php id value
 
 if(typeof(check) != 'undefined' && check != null){
 
-	testArea = document.getElementById("testArea")
 	block = document.getElementById("values").textContent
 	values = block.split("+");
 
@@ -35,9 +27,6 @@ if(typeof(check) != 'undefined' && check != null){
 	
 	constructionURL = "https://affordabledumpsterrental.com/resources/" + slug + "/construction-dumpsters";
 	residentialURL  = "https://affordabledumpsterrental.com/resources/" + slug + "/residential-dumpsters";
-	
-	//test div stuff
-testArea.innerHTML = constructionURL
 
 }
 
@@ -74,8 +63,6 @@ else{
 	telLink = "tel:" + phoneNumberValue;
 	
 }
-
-testArea.innerHTML = constructionURL
 
 
 //set all based on vars
