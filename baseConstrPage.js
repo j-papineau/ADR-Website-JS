@@ -92,7 +92,7 @@ for(i = 0; i < residentialButtons.length; i++){
 }
 
 
-
+//TODO: set regionID for form submit
 
 
 
