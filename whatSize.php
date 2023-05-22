@@ -26,6 +26,7 @@
 	$longName = $results[0]->name_long;
 	$shortName = $results[0]->name_short;
 	$phone = $results[0]->phone;
+	$regionID = $results[0]->regionID;
 	//$phone = "test"
 	
 	//$id = parse_url($url, PHP_URL_QUERY);
@@ -43,13 +44,13 @@
 
 ?>
 
-<!-- hidden inputs to pass onto the JS gen  -->
 
 <input type="hidden" id="phone" value="<?php echo $phone?>"/>
 <input type="hidden" id="slug" value="<?php echo $slug?>"/>
 <input type="hidden" id="longName" value="<?php echo $longName?>"/>
 <input type="hidden" id="shortName" value="<?php echo $shortName?>"/>
 <input type="hidden" id="validID" value="<?php echo $validID?>"/>
+<input type="hidden" id="regionID" value="<?php echo $regionID?>"/>
 
 
 

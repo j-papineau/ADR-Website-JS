@@ -23,20 +23,19 @@ if(valid){
 	slug = document.getElementById("slug").value;
 	phoneNumberValue = document.getElementById("phone").value;
 	locationShort = document.getElementById("shortName").value;
-	locationLong = document.getElementById("longName").value;
+	locationFull = document.getElementById("longName").value;
+	regionID = document.getElementById("regionID").value;
 	
-	phoneNumberLink = "tel:" + phoneNumberValue
+	
+	
+	telLink = "tel:" + phoneNumberValue
 	
 	constructionURL = "https://affordabledumpsterrental.com/resources/" + slug + "/construction-dumpsters";
 	residentialURL  = "https://affordabledumpsterrental.com/resources/" + slug + "/residential-dumpsters";
 	
 	
 	//console prints just for checking
-	console.log("slug = " + slug);
-	console.log ("phoneNumber = " + phoneNumberValue);
-	console.log("short = " + locationShort);
-	console.log("long = " + locationLong);
-	console.log("link = " + phoneNumberLink);
+	
 
 }
 
@@ -61,10 +60,11 @@ else{
 	
 	//default case
 
-	phoneNumberValue = '444-444-3444' //(xxx)-xxx-xxxx
+	phoneNumberValue = '877-393-8677' //(xxx)-xxx-xxxx
 	phoneNumberLink = phoneNumberValue //xxx-xxx-xxxx
-	locationFull = 'Little Rock, AR' 
-	locationShort = 'Little Rock' 
+	locationFull = 'Your County' 
+	locationShort = 'County' 
+	regionID = "100"
 
 	constructionURL = "https://affordabledumpsterrental.com"
 	residentialURL = "https://affordabledumpsterrental.com"
@@ -91,7 +91,7 @@ else{
 
 	for(let i = 0; i < phoneButtons.length; i++){
 
-		phoneButtons[i].href = phoneNumberLink
+		phoneButtons[i].href = telLink
 
 	}
 	
@@ -112,5 +112,28 @@ else{
 		homeownerButtons[i].href = residentialURL
 
 	}
+
+//set regionID for form tracking in CRM
+
+var regionClass = document.getElementsByClassName("region")
+
+
+	for(i = 0; i < regionClass.length; i++){
+		
+		regionClass[i].setAttribute("regionid", regionID);
+		
+		
+	}
+
+
+//print region id for check
+console.log("region id: " + regionID);
+
+//other logs
+
+	console.log ("phoneNumber = " + phoneNumberValue);
+	console.log("short = " + locationShort);
+	console.log("long = " + locationFull);
+	console.log("link = " + telLink);
 
 //other declarations and changes take place on element level
