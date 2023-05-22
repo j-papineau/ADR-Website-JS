@@ -7,26 +7,36 @@ sessionLocationShort = sessionStorage.getItem("locationShort");
 sessionOriginURL = sessionStorage.getItem("originURL");
 
 //create check var for hidden div
-check = document.getElementById("values")
-check.style.display = "none";
+//check = document.getElementById("values")
+//check.style.display = "none";
 
 //first case is if the check div exists, meaning the url has a php id value
 
-if(typeof(check) != 'undefined' && check != null){
-
-	block = document.getElementById("values").textContent
-	values = block.split("+");
 
 
-	slug = values[1];
-	phoneNumberValue = values[0];
-	locationFull = values[2];
-	locationShort = values[3];
+valid = document.getElementById("validID").value
+
+
+
+if(valid){
+	
+	slug = document.getElementById("slug").value;
+	phoneNumberValue = document.getElementById("phone").value;
+	locationShort = document.getElementById("shortName").value;
+	locationLong = document.getElementById("longName").value;
 	
 	phoneNumberLink = "tel:" + phoneNumberValue
 	
 	constructionURL = "https://affordabledumpsterrental.com/resources/" + slug + "/construction-dumpsters";
 	residentialURL  = "https://affordabledumpsterrental.com/resources/" + slug + "/residential-dumpsters";
+	
+	
+	//console prints just for checking
+	console.log("slug = " + slug);
+	console.log ("phoneNumber = " + phoneNumberValue);
+	console.log("short = " + locationShort);
+	console.log("long = " + locationLong);
+	console.log("link = " + phoneNumberLink);
 
 }
 
@@ -81,7 +91,7 @@ else{
 
 	for(let i = 0; i < phoneButtons.length; i++){
 
-		phoneButtons[i].href = "tel:" + phoneNumberLink
+		phoneButtons[i].href = phoneNumberLink
 
 	}
 	

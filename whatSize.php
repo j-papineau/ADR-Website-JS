@@ -13,7 +13,7 @@
 	if(isset($_GET['id'])){
 		$id = $_GET['id'];
 	}else{
-		$id = "1";
+		$id = "-1";
 	}
 	
 
@@ -32,25 +32,26 @@
 
 	if(isset($_GET['id'])){
 		$id = $_GET['id'];
+		$validID = TRUE;
 	}else{
-		$id = "1";
+		$id = "-1";
+		$validID = FALSE;
+		
 	}
 	
 
 
 ?>
 
-<div id="values">
-	
-	
-		<?php
-		echo $phone, "+", $slug,"+",$longName,"+",$shortName;
-		?>
-	
-		<?php
-	
-		echo $id
-		//echo $params;
-		?>
-	
-</div>
+<!-- hidden inputs to pass onto the JS gen  -->
+
+<input type="hidden" id="phone" value="<?php echo $phone?>"/>
+<input type="hidden" id="slug" value="<?php echo $slug?>"/>
+<input type="hidden" id="longName" value="<?php echo $longName?>"/>
+<input type="hidden" id="shortName" value="<?php echo $shortName?>"/>
+<input type="hidden" id="validID" value="<?php echo $validID?>"/>
+
+
+
+
+
