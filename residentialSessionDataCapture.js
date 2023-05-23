@@ -85,8 +85,3 @@ for(i = 0; i < constructionButtons.length; i++){
 	
 }
 
-
-
-
-
-

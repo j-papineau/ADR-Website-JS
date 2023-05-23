@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="zipTestStyle.css">
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    <script>
+
+        
+
+        $(document).ready(function(){
+
+            $("#submitButton").click(function(){
+
+                var input = document.getElementById("zip").value;
+                input = input.substr(0,3);
+
+                $.post("testPull.php", {
+                    firstThree: input
+                }, function(data, status){
+
+                    var base = "https://affordabledumpsterrental.com/resources/";
+                    document.getElementById("result").innerHTML = data;
+                    let linkURL = base + data;
+                    let linkElement = document.getElementById("link");
+                    linkElement.innerHTML = linkURL;
+                    linkElement.href = linkURL;
+                });
+                
+            });
+        });
+
+
+
+    </script>
+<body>
+
+<h2 class="title">Find your service Area</h2>
+<label class="zipText" for="zip">Zip:</label>
+<input id="zip" name="zip"/>
+<button id="submitButton" class="sexyButton" type="button">Search</button>
+
+</body>
+
+<h1>Press Enter To Retrieve Slug Based on ZIP:</h1>
+
+<h2 id="result"></h2>
+
+<h1>Link:</h1>
+<a id="link" href="">link</a>
+
+</html>
+
