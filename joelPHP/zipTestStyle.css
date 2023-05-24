@@ -30,6 +30,7 @@
   touch-action: manipulation;
   vertical-align: baseline;
   width: auto;
+  padding-left: 20px;
 }
 
 .sexyButton:hover,
